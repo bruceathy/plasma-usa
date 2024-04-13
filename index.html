@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <nav>
+      <p>PLASMA USA</p>
+      <ul>
+        <li>
+          <a class="links" href="../html/home.html"> Home </a>
+        </li>
+        <li>
+          <a class="links" href="../html/search.html"> Search Donors </a>
+        </li>
+      </ul>
+    </nav>
+
+    <section class="screening-info">
+      <div class="profile">
+        <img
+          class="profile-pic"
+          src="../public/profile.jpeg"
+          alt="donor profile picture"
+        />
+        <div class="info">
+          <h2>
+            <a>JOHN, DOE</a>
+          </h2>
+          <p><strong>Birthdate: </strong>01/20/1987</p>
+          <p><strong>Donor Since: </strong>11/15/2021</p>
+          <p><strong>Plasma Type: </strong>Non-GHA</p>
+        </div>
+      </div>
+      <div class="vitals">
+        <table>
+          <tr>
+            <th>Activity</th>
+            <th>Results</th>
+            <th>Results Status</th>
+          </tr>
+          <tr>
+            <td>Weight</td>
+            <td><input type="text" id="weight" /> lbs</td>
+            <td id="results-status"></td>
+          </tr>
+
+          <tr>
+            <td>Arm Check</td>
+            <td><input type="text" id="arm-check" /> P/F</td>
+            <td id="results-status"></td>
+          </tr>
+          <tr>
+            <td>Temperature</td>
+            <td><input type="text" id="temperature" /> &#x2109;</td>
+            <td id="results-status"></td>
+          </tr>
+          <tr>
+            <td>Pulse</td>
+            <td><input type="text" id="pulse" /> bpm</td>
+            <td id="results-status"></td>
+          </tr>
+          <tr>
+            <td>SYS</td>
+            <td><input type="text" id="sys" /> mmHg</td>
+            <td id="results-status"></td>
+          </tr>
+          <tr>
+            <td>DIA</td>
+            <td><input type="text" id="dia" /> mmHg</td>
+            <td id="results-status"></td>
+          </tr>
+          <tr>
+            <td>Hematocrit</td>
+            <td><input type="text" id="hematocrit" /> &#37;</td>
+            <td id="results-status"></td>
+          </tr>
+          <tr>
+            <td>Total Protein</td>
+            <td><input type="text" id="total-protein" /> g/dl</td>
+            <td id="results-status"></td>
+          </tr>
+        </table>
+      </div>
+      <div class="check-results">
+        <button type="button" class="result-btn" id="result-btn">
+          Check Results
+        </button>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <p>&copy; PLASMA USA 2023</p>
+    </footer>
+  </body>
+</html>
