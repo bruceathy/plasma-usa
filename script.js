@@ -10,7 +10,6 @@ const totalProtein = document.getElementById("total-protein");
 function checkWeight() {
   if (weight.value > 110 && weight.value < 400) {
     document.getElementById("results-status").innerHTML = "PASS";
-    weight.innerHTML = weight.value;
   } else {
     document.getElementById("results-status").innerHTML = "FAIL";
   }
