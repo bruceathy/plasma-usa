@@ -1,11 +1,11 @@
-const weight = document.getElementById("weight");
-const armCheck = document.getElementById("arm-check");
-const temperature = document.getElementById("temperature");
-const pulse = document.getElementById("pulse");
-const sys = document.getElementById("sys");
-const dia = document.getElementById("dia");
-const hematocrit = document.getElementById("hematocrit");
-const totalProtein = document.getElementById("total-protein");
+const weight = document.getElementById("weight-input");
+const armCheck = document.getElementById("arm-check-input");
+const temperature = document.getElementById("temp-input");
+const pulse = document.getElementById("pulse-input");
+const sys = document.getElementById("sys-input");
+const dia = document.getElementById("dia-input");
+const hematocrit = document.getElementById("hematocrit-input");
+const totalProtein = document.getElementById("protein-input");
 const resultBtn = document.getElementById("result-btn");
 
 let passedVitals = [];
@@ -22,11 +22,12 @@ function checkWeight() {
 function checkArmCheck() {
   if (armCheck.value === "P" || armCheck.value === "p") {
     document.getElementById("arm-result").innerHTML = "PASS";
+    document.getElementById("arm-check").innerHTML = `${armCheck.value} lbs`;
     passedVitals.push("armCheck");
   } else if (armCheck.value === "F" || armCheck.value === "f") {
     document.getElementById("arm-result").innerHTML = "FAIL";
   } else {
-    document.getElementById("arm-result").innerHTML = "INVALID";
+    document.getElementById("arm-check").innerHTML = "INVALID";
   }
 }
 
