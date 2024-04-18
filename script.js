@@ -1,5 +1,5 @@
 const weight = document.getElementById("weight-input");
-const armCheck = document.getElementById("arm-check-input");
+const armCheck = document.getElementById("arm-input");
 const temperature = document.getElementById("temp-input");
 const pulse = document.getElementById("pulse-input");
 const sys = document.getElementById("sys-input");
@@ -10,8 +10,9 @@ const resultBtn = document.getElementById("result-btn");
 
 let passedVitals = [];
 
+// USE TRY CATCH INSTEAD OF IF STATEMENTS
 function checkWeight() {
-  if (weight.value > 109 && weight.value < 400) {
+  if (weight.value > 109 && weight.value < 401) {
     document.getElementById("weight-result").innerHTML = "PASS";
     passedVitals.push("weight");
   } else {
@@ -22,16 +23,18 @@ function checkWeight() {
 function checkArmCheck() {
   if (armCheck.value === "P" || armCheck.value === "p") {
     document.getElementById("arm-result").innerHTML = "PASS";
-    document.getElementById("arm-check").innerHTML = `${armCheck.value} lbs`;
     passedVitals.push("armCheck");
   } else if (armCheck.value === "F" || armCheck.value === "f") {
     document.getElementById("arm-result").innerHTML = "FAIL";
-  } else {
-    document.getElementById("arm-check").innerHTML = "INVALID";
   }
+  // else {
+  //   document.getElementById("arm-check").appendChild("INVALID").innerHTML =
+  //     "INVALID";
+  // }
 }
 
 function checkTemperature() {
+  // REQUIRE A DECIMAL
   if (temperature.value > 94.9 && temperature.value < 99.6) {
     document.getElementById("temp-result").innerHTML = "PASS";
     passedVitals.push("temperature");
@@ -85,14 +88,14 @@ function checkTotalProtein() {
   }
 }
 
-weight.addEventListener("input", checkWeight);
-armCheck.addEventListener("input", checkArmCheck);
-temperature.addEventListener("input", checkTemperature);
-pulse.addEventListener("input", checkPulse);
-sys.addEventListener("input", checkSys);
-dia.addEventListener("input", checkDia);
-hematocrit.addEventListener("input", checkHematocrit);
-totalProtein.addEventListener("input", checkTotalProtein);
+weight.addEventListener("change", checkWeight);
+armCheck.addEventListener("change", checkArmCheck);
+temperature.addEventListener("change", checkTemperature);
+pulse.addEventListener("change", checkPulse);
+sys.addEventListener("change", checkSys);
+dia.addEventListener("change", checkDia);
+hematocrit.addEventListener("change", checkHematocrit);
+totalProtein.addEventListener("change", checkTotalProtein);
 resultBtn.addEventListener("click", () => {
   if (passedVitals.length == 8) {
     alert("Passed Screening!");
