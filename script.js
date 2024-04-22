@@ -17,7 +17,6 @@ getUser();
 async function getUser() {
   const res = await fetch("https://randomuser.me/api");
   const data = await res.json();
-  console.log(data.results);
   const user = data.results[0];
 
   profile.innerHTML = `<img
@@ -70,7 +69,6 @@ function checkArmCheck() {
 }
 
 function checkTemperature() {
-  // REQUIRE A DECIMAL
   if (temperature.value > 94.9 && temperature.value < 99.6) {
     document.getElementById("temp-result").innerHTML = "PASS";
     document.getElementById(
@@ -183,7 +181,6 @@ hematocrit.addEventListener("change", checkHematocrit);
 totalProtein.addEventListener("change", checkTotalProtein);
 resultBtn.addEventListener("click", () => {
   if (passedVitals.length == 8) {
-    // alert("Passed Screening!");
     main.innerHTML = `
     <div class="result">
     <h1>Donor Passed Screening</h1>
