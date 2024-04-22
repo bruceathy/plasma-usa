@@ -1,3 +1,5 @@
+const main = document.getElementById("main");
+const profile = document.getElementById("profile");
 const weight = document.getElementById("weight-input");
 const armCheck = document.getElementById("arm-input");
 const temperature = document.getElementById("temp-input");
@@ -9,6 +11,31 @@ const totalProtein = document.getElementById("protein-input");
 const resultBtn = document.getElementById("result-btn");
 
 let passedVitals = [];
+
+getUser();
+
+async function getUser() {
+  const res = await fetch("https://randomuser.me/api");
+  const data = await res.json();
+  console.log(data.results);
+  const user = data.results[0];
+
+  profile.innerHTML = `<img
+          class="profile-pic"
+          id="donor"
+          src="${user.picture.large}"
+          alt="donor profile picture"
+        />
+        <div class="info">
+          <h2>
+  ${user.name.first} ${user.name.last}
+          </h2>
+          <p><strong>Birthdate: </strong>${user.dob.date.substring(0, 10)}</p>
+          <p><strong>Gender: </strong>${user.gender}</p>
+          <p><strong>Donor Number: </strong>${user.id.value}</p>
+          <p><strong>Plasma Type: </strong>Non-GHA</p>
+        </div>`;
+}
 
 function checkWeight() {
   if (weight.value > 109 && weight.value < 401) {
@@ -156,8 +183,19 @@ hematocrit.addEventListener("change", checkHematocrit);
 totalProtein.addEventListener("change", checkTotalProtein);
 resultBtn.addEventListener("click", () => {
   if (passedVitals.length == 8) {
-    alert("Passed Screening!");
+    // alert("Passed Screening!");
+    main.innerHTML = `
+    <div class="result">
+    <h1>Donor Passed Screening</h1>
+    <button onclick="location.reload()">Next Donor</button>
+    </div>`;
+  } else if (passedVitals.length < 8 && passedVitals.length > 0) {
+    main.innerHTML = `
+    <div class="result">
+    <h1>Donor Failed Screening</h1>
+    <button onclick="location.reload()">Next Donor</button>
+    </div>`;
   } else {
-    alert("Failed Screening!");
+    alert("Please fill out all vitals!");
   }
 });
