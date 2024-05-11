@@ -36,6 +36,7 @@ async function getUser() {
         </div>`;
 }
 
+// ADD DROPBOXES TO ADJUST VITALS AFTER USER INPUT
 function checkWeight() {
   if (weight.value > 109 && weight.value < 401) {
     document.getElementById("weight-result").innerHTML = "PASS";
