@@ -9,6 +9,7 @@ const dia = document.getElementById("dia-input");
 const hematocrit = document.getElementById("hematocrit-input");
 const totalProtein = document.getElementById("protein-input");
 const resultBtn = document.getElementById("result-btn");
+const adjustResult = document.getElementById("adjust-result");
 
 let passedVitals = [];
 
@@ -36,15 +37,24 @@ async function getUser() {
         </div>`;
 }
 
-// ADD DROPBOXES TO ADJUST VITALS AFTER USER INPUT
+// CREATE RESET FUNCTION
 function checkWeight() {
   if (weight.value > 109 && weight.value < 401) {
     document.getElementById("weight-result").innerHTML = "PASS";
-    document.getElementById("weight").innerHTML = `${weight.value}  lbs`;
+    document.getElementById("weight").innerHTML = `
+    <div class="choice">
+      <p>${weight.value}lbs</p>
+      <button type="button" class="retest-btn" id="adjust-result"">Correct?</button>
+    </div>
+`;
     passedVitals.push("weight");
   } else if (weight.value < 109 || weight.value > 401) {
     document.getElementById("weight-result").innerHTML = "FAIL";
-    document.getElementById("weight").innerHTML = `${weight.value}  lbs`;
+    document.getElementById("weight").innerHTML = `
+    <div class="choice">
+      <p>${weight.value}lbs</p>
+      <button type="button" class="retest-btn">Retest?</button>
+    </div>`;
   } else {
     document
       .getElementById("weight")
@@ -55,11 +65,18 @@ function checkWeight() {
 function checkArmCheck() {
   if (armCheck.value === "P" || armCheck.value === "p") {
     document.getElementById("arm-result").innerHTML = "PASS";
-    document.getElementById("arm-check").innerHTML = `${armCheck.value}`;
+    document.getElementById("arm-check").innerHTML = `
+    <div class="choice">
+      <p>${armCheck.value}</p>
+      <button type="button" class="retest-btn">Correct?</button>
+    </div>`;
     passedVitals.push("armCheck");
   } else if (armCheck.value === "F" || armCheck.value === "f") {
     document.getElementById("arm-result").innerHTML = "FAIL";
-    document.getElementById("arm-check").innerHTML = `${armCheck.value}`;
+    document.getElementById("arm-check").innerHTML = `  <div class="choice">
+      <p>${armCheck.value}</p>
+      <button type="button" class="retest-btn">Retest?</button>
+    </div>`;
   } else {
     document
       .getElementById("arm-check")
@@ -72,15 +89,18 @@ function checkArmCheck() {
 function checkTemperature() {
   if (temperature.value > 94.9 && temperature.value < 99.6) {
     document.getElementById("temp-result").innerHTML = "PASS";
-    document.getElementById(
-      "temperature"
-    ).innerHTML = `${temperature.value}  &#x2109;`;
+    document.getElementById("temperature").innerHTML = `
+      <div class="choice">
+      <p>${temperature.value}  &#x2109;</p>
+      <button type="button" class="retest-btn">Correct?</button>
+    </div>`;
     passedVitals.push("temperature");
   } else if (temperature.value < 94.9 || temperature.value > 99.6) {
     document.getElementById("temp-result").innerHTML = "FAIL";
-    document.getElementById(
-      "temperature"
-    ).innerHTML = `${temperature.value}  &#x2109;`;
+    document.getElementById("temperature").innerHTML = `<div class="choice">
+      <p>${temperature.value}  &#x2109;</p>
+      <button type="button" class="retest-btn">Retest?</button>
+    </div>`;
   } else {
     document
       .getElementById("temperature")
@@ -92,11 +112,18 @@ function checkTemperature() {
 function checkPulse() {
   if (pulse.value > 49 && pulse.value < 101) {
     document.getElementById("pulse-result").innerHTML = "PASS";
-    document.getElementById("pulse").innerHTML = `${pulse.value}  bpm`;
+    document.getElementById("pulse").innerHTML = `
+    <div class="choice">
+      <p>${pulse.value}bpm</p>
+      <button type="button" class="retest-btn">Correct?</button>
+    </div>`;
     passedVitals.push("pulse");
   } else if (pulse.value < 49 || pulse.value > 101) {
     document.getElementById("pulse-result").innerHTML = "FAIL";
-    document.getElementById("pulse").innerHTML = `${pulse.value}  bpm`;
+    document.getElementById("pulse").innerHTML = `<div class="choice">
+      <p>${pulse.value}bpm</p>
+      <button type="button" class="retest-btn">Retest?</button>
+    </div>`;
   } else {
     document
       .getElementById("pulse")
@@ -107,11 +134,19 @@ function checkPulse() {
 function checkSys() {
   if (sys.value > 89 && sys.value < 181) {
     document.getElementById("sys-result").innerHTML = "PASS";
-    document.getElementById("sys").innerHTML = `${sys.value}  mmHg`;
+    document.getElementById("sys").innerHTML = `
+    <div class="choice">
+      <p>${sys.value}mmHg</p>
+      <button type="button" class="retest-btn">Correct?</button>
+    </div>`;
     passedVitals.push("sys");
   } else if (sys.value < 89 || sys.value > 181) {
     document.getElementById("sys-result").innerHTML = "FAIL";
-    document.getElementById("sys").innerHTML = `${sys.value}  mmHg`;
+    document.getElementById("sys").innerHTML = `  
+    <div class="choice">
+      <p>${sys.value}mmHg</p>
+      <button type="button" class="retest-btn">Retest?</button>
+    </div>`;
   } else {
     document
       .getElementById("sys")
@@ -122,11 +157,19 @@ function checkSys() {
 function checkDia() {
   if (dia.value > 49 && dia.value < 101) {
     document.getElementById("dia-result").innerHTML = "PASS";
-    document.getElementById("dia").innerHTML = `${dia.value}  mmHg`;
+    document.getElementById("dia").innerHTML = `
+     <div class="choice">
+      <p>${dia.value}mmHg</p>
+      <button type="button" class="retest-btn">Correct?</button>
+    </div>`;
     passedVitals.push("dia");
   } else if (dia.value < 49 || dia.value > 101) {
     document.getElementById("dia-result").innerHTML = "FAIL";
-    document.getElementById("dia").innerHTML = `${dia.value}  mmHg`;
+    document.getElementById("dia").innerHTML = `
+    <div class="choice">
+      <p>${dia.value}mmHg</p>
+      <button type="button" class="retest-btn">Retest?</button>
+    </div>`;
   } else {
     document
       .getElementById("dia")
@@ -137,15 +180,19 @@ function checkDia() {
 function checkHematocrit() {
   if (hematocrit.value > 38 && hematocrit.value < 55) {
     document.getElementById("hematocrit-result").innerHTML = "PASS";
-    document.getElementById(
-      "hematocrit"
-    ).innerHTML = `${hematocrit.value}  &#37;`;
+    document.getElementById("hematocrit").innerHTML = `
+         <div class="choice">
+          <p>${hematocrit.value}&#37;</p>
+          <button type="button" class="retest-btn">Correct?</button>
+         </div>`;
     passedVitals.push("hematocrit");
   } else if (hematocrit.value < 38 || hematocrit.value > 55) {
     document.getElementById("hematocrit-result").innerHTML = "FAIL";
-    document.getElementById(
-      "hematocrit"
-    ).innerHTML = `${hematocrit.value}  &#37;`;
+    document.getElementById("hematocrit").innerHTML = `   
+    <div class="choice">
+      <p>${hematocrit.value}&#37;</p>
+      <button type="button" class="retest-btn">Retest?</button>
+    </div>`;
   } else {
     document
       .getElementById("hematocrit")
@@ -156,15 +203,19 @@ function checkHematocrit() {
 function checkTotalProtein() {
   if (totalProtein.value > 3.9 && totalProtein.value < 9.1) {
     document.getElementById("protein-result").innerHTML = "PASS";
-    document.getElementById(
-      "total-protein"
-    ).innerHTML = `${totalProtein.value}  g/dl`;
+    document.getElementById("total-protein").innerHTML = `
+      <div class="choice">
+        <p>${totalProtein.value}g/dl</p>
+        <button type="button" class="retest-btn">Correct?</button>
+      </div>`;
     passedVitals.push("totalProtein");
   } else if (totalProtein.value < 3.9 || totalProtein.value > 9.1) {
     document.getElementById("protein-result").innerHTML = "FAIL";
-    document.getElementById(
-      "total-protein"
-    ).innerHTML = `${totalProtein.value}  g/dl`;
+    document.getElementById("total-protein").innerHTML = `
+      <div class="choice">
+        <p>${totalProtein.value}g/dl</p>
+        <button type="button" class="retest-btn">Retest?</button>
+      </div>`;
   } else {
     document
       .getElementById("total-protein")

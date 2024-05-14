@@ -22,7 +22,7 @@ nav {
   display: flex;
   justify-content: space-between;
   color: #fff;
-  background-color: #000;
+  background-color: #3d0c00;
   width: 100vw;
   padding: 0.5rem 0.6rem;
   white-space: nowrap;
@@ -114,8 +114,7 @@ tr:nth-child(9) {
   height: 90%;
   width: 40%;
 }
-/* reduse the padding after you add the 
-profile info and vitals chart so its not so big */
+
 .profile {
   display: flex;
   background-color: #000;
@@ -199,6 +198,24 @@ profile info and vitals chart so its not so big */
   border-radius: 20rem;
   height: 40%;
   margin-bottom: 1.7rem;
+}
+
+.choice {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.retest-btn {
+  background-color: transparent;
+  font-weight: 500;
+  font-size: 1rem;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.retest-btn:hover {
+  color: #720000;
 }
 
 @media (max-width: 320px) {
