@@ -15,6 +15,7 @@ let passedVitals = [];
 
 getUser();
 
+// GETS RANDOM USER
 async function getUser() {
   const res = await fetch("https://randomuser.me/api");
   const data = await res.json();
@@ -37,7 +38,7 @@ async function getUser() {
         </div>`;
 }
 
-// CREATE RESET FUNCTION
+// ADD DROPDOWN MENU TO CORRECT & RETEST INPUT
 function checkWeight() {
   if (weight.value > 109 && weight.value < 401) {
     document.getElementById("weight-result").innerHTML = "PASS";
