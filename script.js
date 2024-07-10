@@ -41,11 +41,20 @@ async function getUser() {
 // ADD DROPDOWN MENU TO CORRECT & RETEST INPUT
 function checkWeight() {
   if (weight.value > 109 && weight.value < 401) {
-    document.getElementById("weight-result").innerHTML = "PASS";
+    document.getElementById("weight-result").innerHTML =
+      "<p>PASS<i class='ph ph-check-circle'></i></p>";
     document.getElementById("weight").innerHTML = `
     <div class="choice">
       <p>${weight.value}lbs</p>
-      <button type="button" class="retest-btn" id="adjust-result"">Correct?</button>
+      <div class="dropdown">
+                <button class="dropbtn">
+                 <i class="ph ph-caret-circle-down"></i>
+                </button>
+                <div class="dropdown-content">
+                  <a href="a-review.html">Reviews</a>
+                  <a href="a-recs.html">Recommendations</a>
+                </div>
+              </div>
     </div>
 `;
     passedVitals.push("weight");
@@ -54,7 +63,15 @@ function checkWeight() {
     document.getElementById("weight").innerHTML = `
     <div class="choice">
       <p>${weight.value}lbs</p>
-      <button type="button" class="retest-btn">Retest?</button>
+      <div class="dropdown">
+        <button class="dropbtn">
+          <i class="ph ph-caret-circle-down"></i>
+        </button>
+        <div class="dropdown-content">
+          <a href="a-review.html">Reviews</a>
+          <a href="a-recs.html">Recommendations</a>
+        </div>
+      </div>
     </div>`;
   } else {
     document
