@@ -207,8 +207,8 @@ tr:nth-child(9) {
 
 .choice {
   display: flex;
-  justify-content: center;
-  width: 25%;
+  justify-content: flex-start;
+  /* width: 25%; */
 }
 
 /* .choice p {
@@ -227,6 +227,11 @@ tr:nth-child(9) {
   cursor: pointer;
 }
 
+.dropbtn:hover {
+  background-color: #000;
+  color: #fff;
+}
+
 .dropdown {
   display: inline-block;
 }
@@ -234,14 +239,14 @@ tr:nth-child(9) {
 .dropdown-content {
   display: none;
   position: absolute;
-  background-color: var(--primary-color);
-  min-width: 1rem;
+  background-color: #000;
+  min-width: 0.5rem;
   z-index: 1;
 }
 
 .dropdown-content a {
-  color: var(--secondary-color);
-  padding: 0.3rem 0.5rem;
+  color: #fff;
+  padding: 0.3rem;
   text-decoration: none;
   display: block;
 }
