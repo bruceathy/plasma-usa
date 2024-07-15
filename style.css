@@ -18,7 +18,6 @@ body {
 
 i {
   font-size: 1.5rem;
-  /* background-color: red; */
 }
 
 nav {
@@ -208,12 +207,7 @@ tr:nth-child(9) {
 .choice {
   display: flex;
   justify-content: flex-start;
-  /* width: 25%; */
 }
-
-/* .choice p {
-  background-color: #3d0c00;
-} */
 
 .dropbtn {
   background-color: transparent;
@@ -244,15 +238,16 @@ tr:nth-child(9) {
   z-index: 1;
 }
 
-.dropdown-content a {
+.dropdown-content button {
   color: #fff;
   padding: 0.3rem;
-  text-decoration: none;
+  background-color: #000;
   display: block;
 }
 
-.dropdown-content a:hover {
+.dropdown-content button:hover {
   text-decoration: underline;
+  cursor: pointer;
 }
 
 .dropdown:hover .dropdown-content {

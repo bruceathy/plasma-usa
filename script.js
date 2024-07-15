@@ -38,6 +38,11 @@ async function getUser() {
         </div>`;
 }
 
+// RETEST FUNCTION
+function retest() {
+  console.log("test");
+}
+
 // ADD DROPDOWN MENU TO CORRECT & RETEST INPUT
 function checkWeight() {
   if (weight.value > 109 && weight.value < 401) {
@@ -51,7 +56,7 @@ function checkWeight() {
           <i class="ph ph-caret-circle-down"></i>
         </button>
         <div class="dropdown-content">
-          <button type="button" class="retest-btn">Retest</bu>
+          <button type="text" onclick="retest()" class="retest-btn">Correct</button>
         </div>
       </div>
     </div>
@@ -67,7 +72,7 @@ function checkWeight() {
           <i class="ph ph-caret-circle-down"></i>
         </button>
         <div class="dropdown-content">
-          <button type="button" class="retest-btn">Retest</bu>
+          <button type="button" class="retest-btn">Retest</button>
         </div>
       </div>
     </div>`;
@@ -89,7 +94,7 @@ function checkArmCheck() {
           <i class="ph ph-caret-circle-down"></i>
         </button>
         <div class="dropdown-content">
-          <button type="button" class="retest-btn">Retest</bu>
+          <button type="button" class="retest-btn">Correct</button>
         </div>
       </div>
     </div>`;
@@ -103,7 +108,7 @@ function checkArmCheck() {
           <i class="ph ph-caret-circle-down"></i>
         </button>
         <div class="dropdown-content">
-          <button type="button" class="retest-btn">Retest</bu>
+          <button type="button" class="retest-btn">Retest</button>
         </div>
       </div>
     </div>`;
@@ -127,7 +132,7 @@ function checkTemperature() {
           <i class="ph ph-caret-circle-down"></i>
         </button>
         <div class="dropdown-content">
-          <button type="button" class="retest-btn">Retest</bu>
+          <button type="button" class="retest-btn">Correct</button>
         </div>
       </div>
     </div>`;
@@ -142,7 +147,7 @@ function checkTemperature() {
           <i class="ph ph-caret-circle-down"></i>
         </button>
         <div class="dropdown-content">
-          <button type="button" class="retest-btn">Retest</bu>
+          <button type="button" class="retest-btn">Retest</button>
         </div>
       </div>
     </div>`;
@@ -165,7 +170,7 @@ function checkPulse() {
           <i class="ph ph-caret-circle-down"></i>
         </button>
         <div class="dropdown-content">
-          <button type="button" class="retest-btn">Retest</bu>
+          <button type="button" class="retest-btn">Correct</button>
         </div>
       </div>
     </div>`;
@@ -179,7 +184,7 @@ function checkPulse() {
           <i class="ph ph-caret-circle-down"></i>
         </button>
         <div class="dropdown-content">
-          <button type="button" class="retest-btn">Retest</bu>
+          <button type="button" class="retest-btn">Retest</button>
         </div>
       </div>
     </div>`;
@@ -201,7 +206,7 @@ function checkSys() {
           <i class="ph ph-caret-circle-down"></i>
         </button>
         <div class="dropdown-content">
-          <button type="button" class="retest-btn">Retest</bu>
+          <button type="button" class="retest-btn">Correct</button>
         </div>
       </div>
     </div>`;
@@ -216,7 +221,7 @@ function checkSys() {
           <i class="ph ph-caret-circle-down"></i>
         </button>
         <div class="dropdown-content">
-          <button type="button" class="retest-btn">Retest</bu>
+          <button type="button" class="retest-btn">Retest</button>
         </div>
       </div>
     </div>`;
@@ -238,7 +243,7 @@ function checkDia() {
           <i class="ph ph-caret-circle-down"></i>
         </button>
         <div class="dropdown-content">
-          <button type="button" class="retest-btn">Retest</bu>
+          <button type="button" class="retest-btn">Correct</button>
         </div>
       </div>
     </div>`;
@@ -253,7 +258,7 @@ function checkDia() {
           <i class="ph ph-caret-circle-down"></i>
         </button>
         <div class="dropdown-content">
-          <button type="button" class="retest-btn">Retest</bu>
+          <button type="button" class="retest-btn">Retest</button>
         </div>
       </div>
     </div>`;
@@ -275,7 +280,7 @@ function checkHematocrit() {
           <i class="ph ph-caret-circle-down"></i>
         </button>
         <div class="dropdown-content">
-          <button type="button" class="retest-btn">Retest</bu>
+          <button type="button" class="retest-btn">Correct</button>
         </div>
       </div>
          </div>`;
@@ -290,7 +295,7 @@ function checkHematocrit() {
           <i class="ph ph-caret-circle-down"></i>
         </button>
         <div class="dropdown-content">
-          <button type="button" class="retest-btn">Retest</bu>
+          <button type="button" class="retest-btn">Retest</button>
         </div>
       </div>
     </div>`;
@@ -312,7 +317,7 @@ function checkTotalProtein() {
           <i class="ph ph-caret-circle-down"></i>
         </button>
         <div class="dropdown-content">
-          <button type="button" class="retest-btn">Retest</bu>
+          <button type="button" class="retest-btn">Correct</button>
         </div>
       </div>
       </div>`;
@@ -327,7 +332,7 @@ function checkTotalProtein() {
           <i class="ph ph-caret-circle-down"></i>
         </button>
         <div class="dropdown-content">
-          <button type="button" class="retest-btn">Retest</bu>
+          <button type="button" class="retest-btn">Retest</button>
         </div>
       </div>
       </div>`;
