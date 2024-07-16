@@ -58,6 +58,7 @@ th {
   border: 1px solid #000;
   text-align: left;
   padding: 0.5rem;
+  text-wrap: nowrap;
 }
 
 th {
@@ -83,20 +84,6 @@ tr:nth-child(9) {
 .links:hover {
   color: #e30202;
   cursor: pointer;
-}
-
-.error-msg {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 97vh;
-  width: 100vw;
-  margin: auto;
-  line-height: 4.4rem;
-}
-.error-msg p {
-  line-height: 1.5rem;
 }
 
 .info {
@@ -204,6 +191,25 @@ tr:nth-child(9) {
   margin-bottom: 1.7rem;
 }
 
+.error-text {
+  color: #b70000;
+}
+
+.status-msg {
+  display: flex;
+  align-items: center;
+}
+
+.take-action {
+  background-color: transparent;
+  color: #001fa7;
+  text-decoration: underline;
+  cursor: pointer;
+  overflow: hidden;
+  white-space: nowrap;
+  margin-left: 0.5rem;
+}
+
 @media (max-width: 320px) {
   nav ul {
     color: #1d1b1b;
@@ -264,7 +270,7 @@ tr:nth-child(9) {
   }
 
   .screening-info {
-    width: 90vw;
+    width: 97vw;
   }
 
   .vitals input {

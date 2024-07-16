@@ -9,7 +9,6 @@ const dia = document.getElementById("dia-input");
 const hematocrit = document.getElementById("hematocrit-input");
 const totalProtein = document.getElementById("protein-input");
 const resultBtn = document.getElementById("result-btn");
-const adjustResult = document.getElementById("adjust-result");
 
 let passedVitals = [];
 let failedVitals = [];
@@ -39,51 +38,75 @@ async function getUser() {
         </div>`;
 }
 
-// FINISH ADDING ICONS TO RESULTS STATUS
+// STOP USER FROM ENERING EMPTY INPUTS
 function checkWeight() {
   if (weight.value > 109 && weight.value < 401) {
-    document.getElementById("weight-result").innerHTML =
-      "<p>PASS<i class='ph ph-check-circle'></i></p>";
+    document.getElementById("weight-result").innerHTML = `
+      <div class="status-msg">
+        <p>PASS</p>
+        <i class='ph ph-check-circle'></i>
+      </div>`;
     document.getElementById("weight").innerHTML = `<p>${weight.value}lbs</p>`;
     passedVitals.push("PASS");
   } else if (weight.value < 109 || weight.value > 401) {
-    document.getElementById("weight-result").innerHTML = "FAIL";
+    document.getElementById("weight-result").innerHTML = `
+      <div class="status-msg">
+        <p>FAIL</p>
+        <i class='ph ph-x-circle'></i>
+        <button type="button" class="take-action">Take Action</button>
+      </div>`;
     document.getElementById("weight").innerHTML = `<p>${weight.value}lbs</p>`;
     failedVitals.push("FAIL");
   } else {
     document
       .getElementById("weight")
-      .appendChild(document.createElement("p")).innerHTML = "Must be a number.";
+      .appendChild(document.createElement("div")).innerHTML =
+      "<p class='error-text'>Must be a number.</p>";
   }
 }
 
 function checkArmCheck() {
   if (armCheck.value === "P" || armCheck.value === "p") {
-    document.getElementById("arm-result").innerHTML = "PASS";
+    document.getElementById("arm-result").innerHTML = `
+      <div class="status-msg">
+        <p>PASS</p>
+        <i class='ph ph-check-circle'></i>
+      </div>`;
     document.getElementById("arm-check").innerHTML = `<p>${armCheck.value}</p>`;
     passedVitals.push("PASS");
   } else if (armCheck.value === "F" || armCheck.value === "f") {
-    document.getElementById("arm-result").innerHTML = "FAIL";
+    document.getElementById("arm-result").innerHTML = `
+      <div class="status-msg">
+        <p>FAIL</p>
+        <i class='ph ph-x-circle'></i>
+      </div>`;
     document.getElementById("arm-check").innerHTML = `<p>${armCheck.value}</p>`;
     failedVitals.push("FAIL");
   } else {
     document
       .getElementById("arm-check")
-      .appendChild(
-        document.createElement("p")
-      ).innerHTML = `Must be "P" or "F".`;
+      .appendChild(document.createElement("div")).innerHTML =
+      "<p class='error-text'>Must be a 'P' or 'F'</p>";
   }
 }
 
 function checkTemperature() {
   if (temperature.value > 94.9 && temperature.value < 99.6) {
-    document.getElementById("temp-result").innerHTML = "PASS";
+    document.getElementById("temp-result").innerHTML = `
+      <div class="status-msg">
+        <p>PASS</p>
+        <i class='ph ph-check-circle'></i>
+      </div>`;
     document.getElementById(
       "temperature"
     ).innerHTML = `<p>${temperature.value}  &#x2109;</p>`;
     passedVitals.push("PASS");
   } else if (temperature.value < 94.9 || temperature.value > 99.6) {
-    document.getElementById("temp-result").innerHTML = "FAIL";
+    document.getElementById("temp-result").innerHTML = `
+      <div class="status-msg">
+        <p>FAIL</p>
+        <i class='ph ph-x-circle'></i>
+      </div>`;
     document.getElementById(
       "temperature"
     ).innerHTML = `<p>${temperature.value}  &#x2109;</p>`;
@@ -91,68 +114,103 @@ function checkTemperature() {
   } else {
     document
       .getElementById("temperature")
-      .appendChild(document.createElement("p")).innerHTML =
-      "Must be a decimal.";
+      .appendChild(document.createElement("div")).innerHTML =
+      "<p class='error-text'>Must be a decimal.</p>";
   }
 }
 
 function checkPulse() {
   if (pulse.value > 49 && pulse.value < 101) {
-    document.getElementById("pulse-result").innerHTML = "PASS";
+    document.getElementById("pulse-result").innerHTML = `
+      <div class="status-msg">
+        <p>PASS</p>
+        <i class='ph ph-check-circle'></i>
+      </div>`;
     document.getElementById("pulse").innerHTML = `<p>${pulse.value}bpm</p>`;
     passedVitals.push("PASS");
   } else if (pulse.value < 49 || pulse.value > 101) {
-    document.getElementById("pulse-result").innerHTML = "FAIL";
+    document.getElementById("pulse-result").innerHTML = `
+      <div class="status-msg">
+        <p>FAIL</p>
+        <i class='ph ph-x-circle'></i>
+      </div>`;
     document.getElementById("pulse").innerHTML = `<p>${pulse.value}bpm</p>`;
     failedVitals.push("FAIL");
   } else {
     document
       .getElementById("pulse")
-      .appendChild(document.createElement("p")).innerHTML = "Must be a number.";
+      .appendChild(document.createElement("div")).innerHTML =
+      "<p class='error-text'>Must be a number.</p>";
   }
 }
 
 function checkSys() {
   if (sys.value > 89 && sys.value < 181) {
-    document.getElementById("sys-result").innerHTML = "PASS";
+    document.getElementById("sys-result").innerHTML = `
+      <div class="status-msg">
+        <p>PASS</p>
+        <i class='ph ph-check-circle'></i>
+      </div>`;
     document.getElementById("sys").innerHTML = `<p>${sys.value}mmHg</p>`;
     passedVitals.push("PASS");
   } else if (sys.value < 89 || sys.value > 181) {
-    document.getElementById("sys-result").innerHTML = "FAIL";
+    document.getElementById("sys-result").innerHTML = `
+      <div class="status-msg">
+        <p>FAIL</p>
+        <i class='ph ph-x-circle'></i>
+      </div>`;
     document.getElementById("sys").innerHTML = `<p>${sys.value}mmHg</p>`;
     failedVitals.push("FAIL");
   } else {
     document
       .getElementById("sys")
-      .appendChild(document.createElement("p")).innerHTML = "Must be a number.";
+      .appendChild(document.createElement("div")).innerHTML =
+      "<p class='error-text'>Must be a number.</p>";
   }
 }
 
 function checkDia() {
   if (dia.value > 49 && dia.value < 101) {
-    document.getElementById("dia-result").innerHTML = "PASS";
+    document.getElementById("dia-result").innerHTML = `
+      <div class="status-msg">
+        <p>PASS</p>
+        <i class='ph ph-check-circle'></i>
+      </div>`;
     document.getElementById("dia").innerHTML = `<p>${dia.value}mmHg</p>`;
     passedVitals.push("PASS");
   } else if (dia.value < 49 || dia.value > 101) {
-    document.getElementById("dia-result").innerHTML = "FAIL";
+    document.getElementById("dia-result").innerHTML = `
+      <div class="status-msg">
+        <p>FAIL</p>
+        <i class='ph ph-x-circle'></i>
+      </div>`;
     document.getElementById("dia").innerHTML = `<p>${dia.value}mmHg</p>`;
     failedVitals.push("FAIL");
   } else {
     document
       .getElementById("dia")
-      .appendChild(document.createElement("p")).innerHTML = "Must be a number.";
+      .appendChild(document.createElement("div")).innerHTML =
+      "<p class='error-text'>Must be a number.</p>";
   }
 }
 
 function checkHematocrit() {
   if (hematocrit.value > 38 && hematocrit.value < 55) {
-    document.getElementById("hematocrit-result").innerHTML = "PASS";
+    document.getElementById("hematocrit-result").innerHTML = `
+      <div class="status-msg">
+        <p>PASS</p>
+        <i class='ph ph-check-circle'></i>
+      </div>`;
     document.getElementById(
       "hematocrit"
     ).innerHTML = `<p>${hematocrit.value}&#37;</p>`;
     passedVitals.push("PASS");
   } else if (hematocrit.value < 38 || hematocrit.value > 55) {
-    document.getElementById("hematocrit-result").innerHTML = "FAIL";
+    document.getElementById("hematocrit-result").innerHTML = `
+      <div class="status-msg">
+        <p>FAIL</p>
+        <i class='ph ph-x-circle'></i>
+      </div>`;
     document.getElementById(
       "hematocrit"
     ).innerHTML = `<p>${hematocrit.value}&#37;</p>`;
@@ -160,19 +218,28 @@ function checkHematocrit() {
   } else {
     document
       .getElementById("hematocrit")
-      .appendChild(document.createElement("p")).innerHTML = "Must be a number.";
+      .appendChild(document.createElement("div")).innerHTML =
+      "<p class='error-text'>Must be a percentage.</p>";
   }
 }
 
 function checkTotalProtein() {
   if (totalProtein.value > 3.9 && totalProtein.value < 9.1) {
-    document.getElementById("protein-result").innerHTML = "PASS";
+    document.getElementById("protein-result").innerHTML = `
+      <div class="status-msg">
+        <p>PASS</p>
+        <i class='ph ph-check-circle'></i>
+      </div>`;
     document.getElementById(
       "total-protein"
     ).innerHTML = `<p>${totalProtein.value}g/dl</p>`;
     passedVitals.push("PASS");
   } else if (totalProtein.value < 3.9 || totalProtein.value > 9.1) {
-    document.getElementById("protein-result").innerHTML = "FAIL";
+    document.getElementById("protein-result").innerHTML = `
+      <div class="status-msg">
+        <p>FAIL</p>
+        <i class='ph ph-x-circle'></i>
+      </div>`;
     document.getElementById(
       "total-protein"
     ).innerHTML = `<p>${totalProtein.value}g/dl</p>`;
@@ -180,7 +247,8 @@ function checkTotalProtein() {
   } else {
     document
       .getElementById("total-protein")
-      .appendChild(document.createElement("p")).innerHTML = "Must be a number.";
+      .appendChild(document.createElement("div")).innerHTML =
+      "<p class='error-text'>Must be a decimal.</p>";
   }
 }
 
