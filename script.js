@@ -11,7 +11,6 @@ const totalProtein = document.getElementById("protein-input");
 const resultBtn = document.getElementById("result-btn");
 
 let passedVitals = [];
-let failedVitals = [];
 
 getUser();
 
@@ -56,7 +55,6 @@ function checkWeight() {
         <button type="button" class="take-action">Take Action</button>
       </div>`;
     document.getElementById("weight").innerHTML = `<p>${weight.value}lbs</p>`;
-    failedVitals.push("FAIL");
   } else {
     document
       .getElementById("weight")
@@ -81,7 +79,6 @@ function checkArmCheck() {
         <i class='ph ph-x-circle'></i>
       </div>`;
     document.getElementById("arm-check").innerHTML = `<p>${armCheck.value}</p>`;
-    failedVitals.push("FAIL");
   } else {
     document
       .getElementById("arm-check")
@@ -110,7 +107,6 @@ function checkTemperature() {
     document.getElementById(
       "temperature"
     ).innerHTML = `<p>${temperature.value}  &#x2109;</p>`;
-    failedVitals.push("FAIL");
   } else {
     document
       .getElementById("temperature")
@@ -135,7 +131,6 @@ function checkPulse() {
         <i class='ph ph-x-circle'></i>
       </div>`;
     document.getElementById("pulse").innerHTML = `<p>${pulse.value}bpm</p>`;
-    failedVitals.push("FAIL");
   } else {
     document
       .getElementById("pulse")
@@ -160,7 +155,6 @@ function checkSys() {
         <i class='ph ph-x-circle'></i>
       </div>`;
     document.getElementById("sys").innerHTML = `<p>${sys.value}mmHg</p>`;
-    failedVitals.push("FAIL");
   } else {
     document
       .getElementById("sys")
