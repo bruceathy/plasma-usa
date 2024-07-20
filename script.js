@@ -39,7 +39,10 @@ async function getUser() {
 
 // STOP USER FROM ENERING EMPTY INPUTS
 function checkWeight() {
-  if (weight.value > 109 && weight.value < 401) {
+  if (weight.value.trim() === "") {
+    // Handle empty input, display an error message, or prevent further action
+    return;
+  } else if (weight.value > 109 && weight.value < 401) {
     document.getElementById("weight-result").innerHTML = `
       <div class="status-msg">
         <p>PASS</p>
@@ -64,7 +67,9 @@ function checkWeight() {
 }
 
 function checkArmCheck() {
-  if (armCheck.value === "P" || armCheck.value === "p") {
+  if (weight.value.trim() === "") {
+    return;
+  } else if (armCheck.value === "P" || armCheck.value === "p") {
     document.getElementById("arm-result").innerHTML = `
       <div class="status-msg">
         <p>PASS</p>
@@ -88,7 +93,9 @@ function checkArmCheck() {
 }
 
 function checkTemperature() {
-  if (temperature.value > 94.9 && temperature.value < 99.6) {
+  if (weight.value.trim() === "") {
+    return;
+  } else if (temperature.value > 94.9 && temperature.value < 99.6) {
     document.getElementById("temp-result").innerHTML = `
       <div class="status-msg">
         <p>PASS</p>
@@ -116,7 +123,9 @@ function checkTemperature() {
 }
 
 function checkPulse() {
-  if (pulse.value > 49 && pulse.value < 101) {
+  if (weight.value.trim() === "") {
+    return;
+  } else if (pulse.value > 49 && pulse.value < 101) {
     document.getElementById("pulse-result").innerHTML = `
       <div class="status-msg">
         <p>PASS</p>
@@ -140,7 +149,9 @@ function checkPulse() {
 }
 
 function checkSys() {
-  if (sys.value > 89 && sys.value < 181) {
+  if (weight.value.trim() === "") {
+    return;
+  } else if (sys.value > 89 && sys.value < 181) {
     document.getElementById("sys-result").innerHTML = `
       <div class="status-msg">
         <p>PASS</p>
@@ -164,7 +175,9 @@ function checkSys() {
 }
 
 function checkDia() {
-  if (dia.value > 49 && dia.value < 101) {
+  if (weight.value.trim() === "") {
+    return;
+  } else if (dia.value > 49 && dia.value < 101) {
     document.getElementById("dia-result").innerHTML = `
       <div class="status-msg">
         <p>PASS</p>
@@ -189,7 +202,10 @@ function checkDia() {
 }
 
 function checkHematocrit() {
-  if (hematocrit.value > 38 && hematocrit.value < 55) {
+  if (weight.value.trim() === "") {
+    // Handle empty input, display an error message, or prevent further action
+    return;
+  } else if (hematocrit.value > 38 && hematocrit.value < 55) {
     document.getElementById("hematocrit-result").innerHTML = `
       <div class="status-msg">
         <p>PASS</p>
@@ -218,7 +234,10 @@ function checkHematocrit() {
 }
 
 function checkTotalProtein() {
-  if (totalProtein.value > 3.9 && totalProtein.value < 9.1) {
+  if (weight.value.trim() === "") {
+    // Handle empty input, display an error message, or prevent further action
+    return;
+  } else if (totalProtein.value > 3.9 && totalProtein.value < 9.1) {
     document.getElementById("protein-result").innerHTML = `
       <div class="status-msg">
         <p>PASS</p>
