@@ -40,7 +40,6 @@ async function getUser() {
 // STOP USER FROM ENERING EMPTY INPUTS
 function checkWeight() {
   if (weight.value.trim() === "") {
-    // Handle empty input, display an error message, or prevent further action
     return;
   } else if (weight.value > 109 && weight.value < 401) {
     document.getElementById("weight-result").innerHTML = `
