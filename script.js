@@ -14,6 +14,16 @@ let passedVitals = [];
 
 getUser();
 
+function takeAction() {
+  main.innerHTML = `
+    <div class="result">
+    <h1>Donor Passed Screening</h1>
+    <button onclick="location.reload()">Next Donor</button>
+    </div>`;
+
+  passedVitals = [];
+}
+
 // GETS RANDOM USER
 async function getUser() {
   const res = await fetch("https://randomuser.me/api");
@@ -37,7 +47,7 @@ async function getUser() {
         </div>`;
 }
 
-// STOP USER FROM ENERING EMPTY INPUTS
+// FINISH TAKE ACTION BUTTON
 function checkWeight() {
   if (weight.value.trim() === "") {
     return;
@@ -54,7 +64,7 @@ function checkWeight() {
       <div class="status-msg">
         <p>FAIL</p>
         <i class='ph ph-x-circle'></i>
-        <button type="button" class="take-action">Take Action</button>
+        <button type="button" onClick="takeAction()" class="take-action">Take Action</button>
       </div>`;
     document.getElementById("weight").innerHTML = `<p>${weight.value}lbs</p>`;
   } else {
@@ -81,6 +91,7 @@ function checkArmCheck() {
       <div class="status-msg">
         <p>FAIL</p>
         <i class='ph ph-x-circle'></i>
+        <button type="button" onClick="takeAction()" class="take-action">Take Action</button>
       </div>`;
     document.getElementById("arm-check").innerHTML = `<p>${armCheck.value}</p>`;
   } else {
@@ -109,6 +120,7 @@ function checkTemperature() {
       <div class="status-msg">
         <p>FAIL</p>
         <i class='ph ph-x-circle'></i>
+        <button type="button" onClick="takeAction()" class="take-action">Take Action</button>
       </div>`;
     document.getElementById(
       "temperature"
@@ -137,6 +149,7 @@ function checkPulse() {
       <div class="status-msg">
         <p>FAIL</p>
         <i class='ph ph-x-circle'></i>
+        <button type="button" onClick="takeAction()" class="take-action">Take Action</button>
       </div>`;
     document.getElementById("pulse").innerHTML = `<p>${pulse.value}bpm</p>`;
   } else {
@@ -163,6 +176,7 @@ function checkSys() {
       <div class="status-msg">
         <p>FAIL</p>
         <i class='ph ph-x-circle'></i>
+        <button type="button" onClick="takeAction()" class="take-action">Take Action</button>
       </div>`;
     document.getElementById("sys").innerHTML = `<p>${sys.value}mmHg</p>`;
   } else {
@@ -189,9 +203,9 @@ function checkDia() {
       <div class="status-msg">
         <p>FAIL</p>
         <i class='ph ph-x-circle'></i>
+        <button type="button" onClick="takeAction()" class="take-action">Take Action</button>
       </div>`;
     document.getElementById("dia").innerHTML = `<p>${dia.value}mmHg</p>`;
-    failedVitals.push("FAIL");
   } else {
     document
       .getElementById("dia")
@@ -202,7 +216,6 @@ function checkDia() {
 
 function checkHematocrit() {
   if (weight.value.trim() === "") {
-    // Handle empty input, display an error message, or prevent further action
     return;
   } else if (hematocrit.value > 38 && hematocrit.value < 55) {
     document.getElementById("hematocrit-result").innerHTML = `
@@ -219,11 +232,11 @@ function checkHematocrit() {
       <div class="status-msg">
         <p>FAIL</p>
         <i class='ph ph-x-circle'></i>
+        <button type="button" onClick="takeAction()" class="take-action">Take Action</button>
       </div>`;
     document.getElementById(
       "hematocrit"
     ).innerHTML = `<p>${hematocrit.value}&#37;</p>`;
-    failedVitals.push("FAIL");
   } else {
     document
       .getElementById("hematocrit")
@@ -234,7 +247,6 @@ function checkHematocrit() {
 
 function checkTotalProtein() {
   if (weight.value.trim() === "") {
-    // Handle empty input, display an error message, or prevent further action
     return;
   } else if (totalProtein.value > 3.9 && totalProtein.value < 9.1) {
     document.getElementById("protein-result").innerHTML = `
@@ -251,11 +263,11 @@ function checkTotalProtein() {
       <div class="status-msg">
         <p>FAIL</p>
         <i class='ph ph-x-circle'></i>
+        <button type="button" onClick="takeAction()" class="take-action">Take Action</button>
       </div>`;
     document.getElementById(
       "total-protein"
     ).innerHTML = `<p>${totalProtein.value}g/dl</p>`;
-    failedVitals.push("FAIL");
   } else {
     document
       .getElementById("total-protein")
@@ -279,6 +291,8 @@ resultBtn.addEventListener("click", () => {
     <h1>Donor Passed Screening</h1>
     <button onclick="location.reload()">Next Donor</button>
     </div>`;
+
+    passedVitals = [];
   } else if (passedVitals.length < 8 && passedVitals.length > 0) {
     main.innerHTML = `
     <div class="result">
